@@ -64,7 +64,7 @@
 			android:layout_height="wrap_content"
 			android:layout_marginStart="5dp"
 			android:layout_marginTop="5dp"
-			android:text="Visa"
+			android:text="'?"
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintTop_toBottomOf="@+id/scheme_network_tittle" />
 
@@ -86,7 +86,7 @@
 			android:layout_height="wrap_content"
 			android:layout_marginStart="5dp"
 			android:layout_marginTop="5dp"
-			android:text="Visa/Dankort"
+			android:text="'?"
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintTop_toBottomOf="@+id/brand_tittle" />
 
@@ -119,7 +119,7 @@
 			android:layout_height="wrap_content"
 			android:layout_marginStart="5dp"
 			android:layout_marginTop="5dp"
-			android:text="16"
+			android:text="'?"
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintTop_toBottomOf="@+id/length_tittle" />
 
@@ -140,7 +140,7 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="5dp"
-			android:text="@string/luhn_value"
+			android:text="'?"
 			app:layout_constraintStart_toStartOf="@+id/luhn_tittle"
 			app:layout_constraintTop_toBottomOf="@+id/luhn_tittle" />
 
@@ -161,7 +161,7 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="5dp"
-			android:text="@string/type_value"
+			android:text="'?"
 			app:layout_constraintStart_toStartOf="@+id/type_tittle"
 			app:layout_constraintTop_toBottomOf="@+id/type_tittle" />
 
@@ -181,7 +181,7 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="5dp"
-			android:text="No"
+			android:text="'?"
 			app:layout_constraintStart_toStartOf="@+id/prepaid_tittle"
 			app:layout_constraintTop_toBottomOf="@+id/prepaid_tittle" />
 
@@ -201,7 +201,7 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="5dp"
-			android:text="dk Denmark"
+			android:text="'?"
 			app:layout_constraintStart_toStartOf="@+id/country_tittle"
 			app:layout_constraintTop_toBottomOf="@+id/country_tittle" />
 
@@ -235,7 +235,7 @@
 			android:layout_height="wrap_content"
 			android:layout_marginStart="5dp"
 			android:layout_marginTop="5dp"
-			android:text="Jyske Bank, Hjørring"
+			android:text="'?"
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintTop_toBottomOf="@+id/bank_tittle" />
 
@@ -248,7 +248,7 @@
 			android:layout_marginTop="5dp"
 			android:autoLink="web"
 			android:linksClickable="true"
-			android:text="www.jyskebank.dk"
+			android:text="'?"
 			android:textColorLink="@color/link_color"
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintTop_toBottomOf="@+id/bank_name" />
@@ -262,7 +262,7 @@
 			android:layout_marginTop="5dp"
 			android:autoLink="phone"
 			android:linksClickable="true"
-			android:text="+4589893300"
+			android:text="'?"
 			android:textColorLink="@color/link_color"
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintTop_toBottomOf="@+id/bank_site" />
