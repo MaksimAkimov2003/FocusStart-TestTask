@@ -1,3 +1,16 @@
 <resources>
 	<string name="app_name">Focuse Start (test task)</string>
+	<string name="error_message">Error: Bad request</string>
+	<string name="tittle_1">Scheme/Network</string>
+	<string name="tittle_2">Brand</string>
+	<string name="tittle_4">Type</string>
+	<string name="type_value">Debit</string>
+	<string name="tittle_3">Card number</string>
+	<string name="length_tittle">Length</string>
+	<string name="luhn_tittle">luhn</string>
+	<string name="luhn_value">Yes</string>
+	<string name="tittle_5">prepaid</string>
+	<string name="tittle_6">country</string>
+	<string name="tittle_7">bank</string>
+	<string name="show_coordinates_text">Посмотреть\n на карте</string>
 </resources>

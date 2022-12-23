@@ -9,7 +9,7 @@ class CardInfoViewModel(
 	private val getCardInfoUseCase: GetCardInfoUseCase
 ) : ViewModel() {
 
-	fun getCardDetails(cardBin: Int) {
+	fun getCardDetails(cardBin: String) {
 		viewModelScope.launch {
 			getCardInfoUseCase.execute(cardBin)
 		}

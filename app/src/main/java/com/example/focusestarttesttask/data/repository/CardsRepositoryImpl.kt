@@ -5,7 +5,7 @@ import com.example.focusestarttesttask.domain.repository.CardsRepository
 
 class CardsRepositoryImpl(private val cardInfoService: CardInfoService) : CardsRepository {
 
-	override suspend fun getCardDetailsFromNetwork(cardBin: Int) {
-		cardInfoService.getCardInformation(cardBin.toString())
+	override suspend fun getCardDetailsFromNetwork(cardBin: String) {
+		cardInfoService.getCardInformation(cardBin)
 	}
 }
