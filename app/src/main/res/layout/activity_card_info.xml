@@ -1,18 +1,274 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
+	android:background="@color/light_gray"
+	android:orientation="vertical"
 	tools:context=".ui.CardInfoActivity">
 
-	<TextView
+	<FrameLayout
+		android:layout_width="match_parent"
+		android:layout_height="?actionBarSize"
+		android:background="@drawable/gradient" />
+
+	<com.google.android.material.textfield.TextInputLayout
+		android:id="@+id/search_card_info_layout"
+		style="@style/Theme.FocuseStarttestTask.SimpleTextInputRounded"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginEnd="16dp"
+		android:layout_marginStart="16dp"
+		android:layout_marginTop="16dp"
+		app:endIconDrawable="@drawable/ic_baseline_cancel_24"
+		app:endIconMode="custom"
+		app:endIconTint="@color/red">
+
+		<com.google.android.material.textfield.TextInputEditText
+			android:id="@+id/search_card_info"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:imeOptions="actionSearch"
+			android:inputType="numberDecimal"
+			android:textColor="@color/black"
+			android:textSize="20sp" />
+	</com.google.android.material.textfield.TextInputLayout>
+
+	<androidx.constraintlayout.widget.ConstraintLayout
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:text="Hello World!"
-		app:layout_constraintBottom_toBottomOf="parent"
-		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toTopOf="parent" />
+		android:layout_gravity="center"
+		android:layout_marginTop="36dp"
+		android:background="@drawable/stroke"
+		android:paddingBottom="20dp"
+		android:paddingEnd="20dp"
+		android:paddingStart="15dp"
+		android:paddingTop="20dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+		<TextView
+			android:id="@+id/scheme_network_tittle"
+			style="@style/Theme.FocuseStarttestTask.Tittle"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="5dp"
+			android:layout_marginTop="5dp"
+			android:text="@string/tittle_1"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<TextView
+			android:id="@+id/scheme_network_value"
+			style="@style/Theme.FocuseStarttestTask.Text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="5dp"
+			android:layout_marginTop="5dp"
+			android:text="Visa"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/scheme_network_tittle" />
+
+		<TextView
+			android:id="@+id/brand_tittle"
+			style="@style/Theme.FocuseStarttestTask.Tittle"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="5dp"
+			android:layout_marginTop="20dp"
+			android:text="@string/tittle_2"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/scheme_network_value" />
+
+		<TextView
+			android:id="@+id/brand_value"
+			style="@style/Theme.FocuseStarttestTask.Text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="5dp"
+			android:layout_marginTop="5dp"
+			android:text="Visa/Dankort"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/brand_tittle" />
+
+		<TextView
+			android:id="@+id/card_number_tittle"
+			style="@style/Theme.FocuseStarttestTask.Tittle"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="5dp"
+			android:layout_marginTop="20dp"
+			android:text="@string/tittle_3"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/brand_value" />
+
+		<TextView
+			android:id="@+id/length_tittle"
+			style="@style/Theme.FocuseStarttestTask.Tittle"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="5dp"
+			android:layout_marginTop="5dp"
+			android:text="@string/length_tittle"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/card_number_tittle" />
+
+		<TextView
+			android:id="@+id/length_value"
+			style="@style/Theme.FocuseStarttestTask.Text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="5dp"
+			android:layout_marginTop="5dp"
+			android:text="16"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/length_tittle" />
+
+		<TextView
+			android:id="@+id/luhn_tittle"
+			style="@style/Theme.FocuseStarttestTask.Tittle"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="20dp"
+			android:layout_marginTop="5dp"
+			android:text="@string/luhn_tittle"
+			app:layout_constraintStart_toEndOf="@+id/length_tittle"
+			app:layout_constraintTop_toBottomOf="@+id/card_number_tittle" />
+
+		<TextView
+			android:id="@+id/luhn_value"
+			style="@style/Theme.FocuseStarttestTask.Text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="@string/luhn_value"
+			app:layout_constraintStart_toStartOf="@+id/luhn_tittle"
+			app:layout_constraintTop_toBottomOf="@+id/luhn_tittle" />
+
+		<TextView
+			android:id="@+id/type_tittle"
+			style="@style/Theme.FocuseStarttestTask.Tittle"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="40dp"
+			android:layout_marginTop="5dp"
+			android:text="@string/tittle_4"
+			app:layout_constraintStart_toEndOf="@+id/scheme_network_tittle"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<TextView
+			android:id="@+id/type_value"
+			style="@style/Theme.FocuseStarttestTask.Text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="@string/type_value"
+			app:layout_constraintStart_toStartOf="@+id/type_tittle"
+			app:layout_constraintTop_toBottomOf="@+id/type_tittle" />
+
+		<TextView
+			android:id="@+id/prepaid_tittle"
+			style="@style/Theme.FocuseStarttestTask.Tittle"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="20dp"
+			android:text="@string/tittle_5"
+			app:layout_constraintStart_toStartOf="@+id/type_tittle"
+			app:layout_constraintTop_toBottomOf="@+id/type_value" />
+
+		<TextView
+			android:id="@+id/prepaid_value"
+			style="@style/Theme.FocuseStarttestTask.Text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="No"
+			app:layout_constraintStart_toStartOf="@+id/prepaid_tittle"
+			app:layout_constraintTop_toBottomOf="@+id/prepaid_tittle" />
+
+		<TextView
+			android:id="@+id/country_tittle"
+			style="@style/Theme.FocuseStarttestTask.Tittle"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="20dp"
+			android:text="@string/tittle_6"
+			app:layout_constraintStart_toStartOf="@+id/prepaid_value"
+			app:layout_constraintTop_toBottomOf="@+id/prepaid_value" />
+
+		<TextView
+			android:id="@+id/country_value"
+			style="@style/Theme.FocuseStarttestTask.Text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="dk Denmark"
+			app:layout_constraintStart_toStartOf="@+id/country_tittle"
+			app:layout_constraintTop_toBottomOf="@+id/country_tittle" />
+
+		<TextView
+			android:id="@+id/country_coordinates"
+			style="@style/Theme.FocuseStarttestTask.Text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="@string/show_coordinates_text"
+			android:textColor="@color/link_color"
+			app:layout_constraintStart_toStartOf="@+id/country_value"
+			app:layout_constraintTop_toBottomOf="@+id/country_value" />
+
+		<TextView
+			android:id="@+id/bank_tittle"
+			style="@style/Theme.FocuseStarttestTask.Tittle"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="5dp"
+			android:layout_marginTop="20dp"
+			android:text="@string/tittle_7"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/luhn_value" />
+
+		<TextView
+			android:id="@+id/bank_name"
+			style="@style/Theme.FocuseStarttestTask.Text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="5dp"
+			android:layout_marginTop="5dp"
+			android:text="Jyske Bank, Hjørring"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/bank_tittle" />
+
+		<TextView
+			android:id="@+id/bank_site"
+			style="@style/Theme.FocuseStarttestTask.Text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="5dp"
+			android:layout_marginTop="5dp"
+			android:autoLink="web"
+			android:linksClickable="true"
+			android:text="www.jyskebank.dk"
+			android:textColorLink="@color/link_color"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/bank_name" />
+
+		<TextView
+			android:id="@+id/bank_telephone"
+			style="@style/Theme.FocuseStarttestTask.Text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="5dp"
+			android:layout_marginTop="5dp"
+			android:autoLink="phone"
+			android:linksClickable="true"
+			android:text="+4589893300"
+			android:textColorLink="@color/link_color"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/bank_site" />
+
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<style name="Theme.FocuseStarttestTask.SimpleTextInputRounded" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+		<item name="boxStrokeColor">@color/green</item>
+		<item name="boxCornerRadiusBottomEnd">20dp</item>
+		<item name="boxCornerRadiusBottomStart">20dp</item>
+		<item name="boxCornerRadiusTopEnd">20dp</item>
+		<item name="boxCornerRadiusTopStart">20dp</item>
+	</style>
+
+	<style name="Theme.FocuseStarttestTask.Tittle">
+		<item name="android:textSize">16sp</item>
+		<item name="android:textAllCaps">true</item>
+		<item name="android:textStyle">normal</item>
+		<item name="android:textColor">@color/black</item>
+	</style>
+
+	<style name="Theme.FocuseStarttestTask.Text">
+		<item name="android:textSize">18sp</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:textColor">@color/green</item>
+	</style>
+</resources>

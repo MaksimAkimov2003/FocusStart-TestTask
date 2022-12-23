@@ -6,7 +6,7 @@ import kotlinx.coroutines.withContext
 
 class GetCardInfoUseCase(private val cardsRepository: CardsRepository) {
 
-	suspend fun execute(cardBin: Int) {
+	suspend fun execute(cardBin: String) {
 		withContext(Dispatchers.IO) {
 			cardsRepository.getCardDetailsFromNetwork(cardBin)
 		}
