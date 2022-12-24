@@ -36,6 +36,7 @@
 	</com.google.android.material.textfield.TextInputLayout>
 
 	<androidx.constraintlayout.widget.ConstraintLayout
+		android:id="@+id/information_layout"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_gravity="center"
@@ -64,7 +65,6 @@
 			android:layout_height="wrap_content"
 			android:layout_marginStart="5dp"
 			android:layout_marginTop="5dp"
-			android:text="'?"
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintTop_toBottomOf="@+id/scheme_network_tittle" />
 
@@ -86,7 +86,6 @@
 			android:layout_height="wrap_content"
 			android:layout_marginStart="5dp"
 			android:layout_marginTop="5dp"
-			android:text="'?"
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintTop_toBottomOf="@+id/brand_tittle" />
 
@@ -119,7 +118,6 @@
 			android:layout_height="wrap_content"
 			android:layout_marginStart="5dp"
 			android:layout_marginTop="5dp"
-			android:text="'?"
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintTop_toBottomOf="@+id/length_tittle" />
 
@@ -140,7 +138,6 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="5dp"
-			android:text="'?"
 			app:layout_constraintStart_toStartOf="@+id/luhn_tittle"
 			app:layout_constraintTop_toBottomOf="@+id/luhn_tittle" />
 
@@ -161,7 +158,6 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="5dp"
-			android:text="'?"
 			app:layout_constraintStart_toStartOf="@+id/type_tittle"
 			app:layout_constraintTop_toBottomOf="@+id/type_tittle" />
 
@@ -181,7 +177,6 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="5dp"
-			android:text="'?"
 			app:layout_constraintStart_toStartOf="@+id/prepaid_tittle"
 			app:layout_constraintTop_toBottomOf="@+id/prepaid_tittle" />
 
@@ -201,7 +196,6 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="5dp"
-			android:text="'?"
 			app:layout_constraintStart_toStartOf="@+id/country_tittle"
 			app:layout_constraintTop_toBottomOf="@+id/country_tittle" />
 
@@ -211,6 +205,8 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="5dp"
+			android:clickable="true"
+			android:focusable="true"
 			android:text="@string/show_coordinates_text"
 			android:textColor="@color/link_color"
 			app:layout_constraintStart_toStartOf="@+id/country_value"
@@ -226,7 +222,7 @@
 			android:text="@string/tittle_7"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toBottomOf="@+id/luhn_value" />
+			app:layout_constraintTop_toBottomOf="@+id/country_coordinates" />
 
 		<TextView
 			android:id="@+id/bank_name"
@@ -235,7 +231,6 @@
 			android:layout_height="wrap_content"
 			android:layout_marginStart="5dp"
 			android:layout_marginTop="5dp"
-			android:text="'?"
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintTop_toBottomOf="@+id/bank_tittle" />
 
@@ -248,7 +243,6 @@
 			android:layout_marginTop="5dp"
 			android:autoLink="web"
 			android:linksClickable="true"
-			android:text="'?"
 			android:textColorLink="@color/link_color"
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintTop_toBottomOf="@+id/bank_name" />
@@ -260,10 +254,7 @@
 			android:layout_height="wrap_content"
 			android:layout_marginStart="5dp"
 			android:layout_marginTop="5dp"
-			android:autoLink="phone"
-			android:linksClickable="true"
-			android:text="'?"
-			android:textColorLink="@color/link_color"
+			android:textColor="@color/link_color"
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintTop_toBottomOf="@+id/bank_site" />
 
