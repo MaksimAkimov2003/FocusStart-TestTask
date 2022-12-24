@@ -1,6 +1,5 @@
 package com.example.focusestarttesttask.presentation
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -15,8 +14,8 @@ class CardInfoViewModel(
 	private val getCardInfoUseCase: GetCardInfoUseCase
 ) : ViewModel() {
 
-	private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
-		onError("Exception handled: ${throwable.localizedMessage}")
+	private val exceptionHandler = CoroutineExceptionHandler { _, _ ->
+		onError()
 	}
 
 	private val _state = MutableLiveData<CardInfoState>(CardInfoState.Initial)
@@ -30,7 +29,7 @@ class CardInfoViewModel(
 				val response = getCardInfoUseCase.execute(cardBin)
 				setContentState(response)
 			} catch (e: Error) {
-				onError(e.message.toString())
+				onError()
 			}
 		}
 	}
@@ -56,8 +55,7 @@ class CardInfoViewModel(
 		)
 	}
 
-	private fun onError(message: String) {
+	private fun onError() {
 		_state.postValue(CardInfoState.Error)
-		Log.e("ERRORYCH", message)
 	}
 }

@@ -5,7 +5,6 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.telephony.PhoneNumberUtils
-import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
@@ -28,6 +27,7 @@ class CardInfoActivity : AppCompatActivity(), TextView.OnEditorActionListener {
 		super.onCreate(savedInstanceState)
 		binding = ActivityCardInfoBinding.inflate(layoutInflater)
 		setContentView(binding.root)
+		binding.progressBar.hideWithFade()
 		setObserves()
 		setListeners()
 	}
@@ -37,7 +37,7 @@ class CardInfoActivity : AppCompatActivity(), TextView.OnEditorActionListener {
 			hideKeyboard()
 			viewModel.getCardDetails(binding.searchCardInfo.text.toString())
 
-			return true;
+			return true
 		}
 		return false
 	}
@@ -64,13 +64,14 @@ class CardInfoActivity : AppCompatActivity(), TextView.OnEditorActionListener {
 	}
 
 	private fun renderLoadingState() {
-		Log.e("state", "renderLoadingState")
+		binding.progressBar.showWithFade()
 	}
 
 	private fun renderContentState(state: CardInfoState.Content) {
 
 		with(binding) {
 			informationLayout.visibility = View.VISIBLE
+			binding.progressBar.hideWithFade()
 			schemeNetworkValue.text = state.cardScheme
 			bankTelephone.text = convertTelephoneNumber(state.bankPhone)
 			bankSite.text = state.bankUrl
@@ -115,7 +116,9 @@ class CardInfoActivity : AppCompatActivity(), TextView.OnEditorActionListener {
 
 		var newNumber = PhoneNumberUtils.normalizeNumber(number)
 
-		newNumber = newNumber.substring(0, 11)
+		if (newNumber.length > 12) {
+			newNumber = newNumber.substring(0, 11)
+		}
 
 		if (newNumber[0] != '+') {
 			newNumber = "+$newNumber"
@@ -141,6 +144,8 @@ class CardInfoActivity : AppCompatActivity(), TextView.OnEditorActionListener {
 	}
 
 	private fun showErrors() {
+		binding.progressBar.hideWithFade()
+
 		with(binding.searchCardInfoLayout) {
 			error = getString(R.string.error_message)
 			errorIconDrawable = null
