@@ -2,13 +2,17 @@ package com.example.focusestarttesttask.data.repository
 
 import com.example.focusestarttesttask.data.api.CardInfoService
 import com.example.focusestarttesttask.data.models.CardInfoModel
+import com.example.focusestarttesttask.data.storage.RequestsStorage
 import com.example.focusestarttesttask.domain.entity.BankEntity
 import com.example.focusestarttesttask.domain.entity.CardEntity
 import com.example.focusestarttesttask.domain.entity.CardInfoEntity
 import com.example.focusestarttesttask.domain.entity.CountryEntity
 import com.example.focusestarttesttask.domain.repository.CardsRepository
 
-class CardsRepositoryImpl(private val cardInfoService: CardInfoService) : CardsRepository {
+class CardsRepositoryImpl(
+	private val cardInfoService: CardInfoService,
+	private val requestsStorage: RequestsStorage
+) : CardsRepository {
 
 	override suspend fun getCardDetailsFromNetwork(cardBin: String): CardInfoEntity {
 		val cardInfoModel = cardInfoService.getCardInformation(cardBin)

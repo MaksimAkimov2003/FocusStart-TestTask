@@ -5,6 +5,7 @@ import com.example.focusestarttesttask.data.api.provideLoggingInterceptor
 import com.example.focusestarttesttask.data.api.provideMoshi
 import com.example.focusestarttesttask.data.api.provideOkHttpClient
 import com.example.focusestarttesttask.data.repository.CardsRepositoryImpl
+import com.example.focusestarttesttask.data.storage.RequestsStorage
 import com.example.focusestarttesttask.domain.repository.CardsRepository
 import com.example.focusestarttesttask.domain.useCases.GetCardInfoUseCase
 import com.example.focusestarttesttask.presentation.CardInfoViewModel
@@ -16,8 +17,9 @@ val appModule = module {
 	single { provideOkHttpClient(loggingInterceptor = get()) }
 	single { provideMoshi() }
 	single { provideCardInfoService(okHttpClient = get(), moshi = get()) }
+	single { RequestsStorage(context = get()) }
 	single<CardsRepository> {
-		CardsRepositoryImpl(cardInfoService = get())
+		CardsRepositoryImpl(cardInfoService = get(), requestsStorage = get())
 	}
 	factory {
 		GetCardInfoUseCase(cardsRepository = get())

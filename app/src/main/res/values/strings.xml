@@ -13,4 +13,5 @@
 	<string name="tittle_6">country</string>
 	<string name="tittle_7">bank</string>
 	<string name="show_coordinates_text">Посмотреть\n на карте</string>
+	<string name="SHARED_PREFS_REQUESTS">SHARED_PREFS_REQUESTS</string>
 </resources>
