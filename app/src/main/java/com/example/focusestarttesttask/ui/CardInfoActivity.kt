@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.telephony.PhoneNumberUtils
+import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
@@ -36,7 +37,6 @@ class CardInfoActivity : AppCompatActivity(), TextView.OnEditorActionListener {
 		if (actionId == EditorInfo.IME_ACTION_SEARCH) {
 			hideKeyboard()
 			viewModel.getCardDetails(binding.searchCardInfo.text.toString())
-
 			return true
 		}
 		return false
@@ -49,6 +49,11 @@ class CardInfoActivity : AppCompatActivity(), TextView.OnEditorActionListener {
 
 	private fun setObserves() {
 		viewModel.state.observe(this, ::handleState)
+		viewModel.requests.observe(this) {
+			for (request in it) {
+				Log.e("HISTORY_REQUEST", request.request)
+			}
+		}
 	}
 
 	private fun handleState(state: CardInfoState) {
@@ -64,6 +69,7 @@ class CardInfoActivity : AppCompatActivity(), TextView.OnEditorActionListener {
 	}
 
 	private fun renderLoadingState() {
+		Log.e("AAAAA", "renderLoadingState")
 		binding.progressBar.showWithFade()
 	}
 

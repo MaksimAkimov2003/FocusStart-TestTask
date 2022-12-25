@@ -45,7 +45,8 @@
 		android:paddingBottom="20dp"
 		android:paddingEnd="20dp"
 		android:paddingStart="15dp"
-		android:paddingTop="20dp">
+		android:paddingTop="20dp"
+		android:visibility="invisible">
 
 		<TextView
 			android:id="@+id/scheme_network_tittle"

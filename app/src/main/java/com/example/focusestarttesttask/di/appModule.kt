@@ -8,6 +8,8 @@ import com.example.focusestarttesttask.data.repository.CardsRepositoryImpl
 import com.example.focusestarttesttask.data.storage.RequestsStorage
 import com.example.focusestarttesttask.domain.repository.CardsRepository
 import com.example.focusestarttesttask.domain.useCases.GetCardInfoUseCase
+import com.example.focusestarttesttask.domain.useCases.GetSetOfUsersRequestsUseCase
+import com.example.focusestarttesttask.domain.useCases.SaveUserRequestUseCase
 import com.example.focusestarttesttask.presentation.CardInfoViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -24,8 +26,17 @@ val appModule = module {
 	factory {
 		GetCardInfoUseCase(cardsRepository = get())
 	}
-	viewModel {
-		CardInfoViewModel(getCardInfoUseCase = get())
+	factory {
+		SaveUserRequestUseCase(cardsRepository = get())
 	}
-
+	factory {
+		GetSetOfUsersRequestsUseCase(cardsRepository = get())
+	}
+	viewModel {
+		CardInfoViewModel(
+			getCardInfoUseCase = get(),
+			saveUserRequestUseCase = get(),
+			getSetOfUsersRequestsUseCase = get()
+		)
+	}
 }

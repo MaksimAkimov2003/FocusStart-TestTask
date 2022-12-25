@@ -7,6 +7,7 @@ import com.example.focusestarttesttask.domain.entity.BankEntity
 import com.example.focusestarttesttask.domain.entity.CardEntity
 import com.example.focusestarttesttask.domain.entity.CardInfoEntity
 import com.example.focusestarttesttask.domain.entity.CountryEntity
+import com.example.focusestarttesttask.domain.entity.RequestEntity
 import com.example.focusestarttesttask.domain.repository.CardsRepository
 
 class CardsRepositoryImpl(
@@ -18,6 +19,14 @@ class CardsRepositoryImpl(
 		val cardInfoModel = cardInfoService.getCardInformation(cardBin)
 
 		return mapModelToEntity(cardInfoModel)
+	}
+
+	override fun saveUsersRequests(requestEntitySet: MutableSet<RequestEntity>) {
+		requestsStorage.saveSetOfUsersRequests(requestEntitySet)
+	}
+
+	override fun getUserRequests(): MutableSet<RequestEntity>? {
+		return requestsStorage.getSetOfUsersRequests()
 	}
 
 	private fun mapModelToEntity(cardInfoModel: CardInfoModel): CardInfoEntity {
