@@ -15,20 +15,28 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doOnTextChanged
 import com.example.focusestarttesttask.R
 import com.example.focusestarttesttask.databinding.ActivityCardInfoBinding
+import com.example.focusestarttesttask.databinding.BottomSheetBinding
 import com.example.focusestarttesttask.presentation.CardInfoState
 import com.example.focusestarttesttask.presentation.CardInfoViewModel
+import com.example.focusestarttesttask.ui.recycler.IRecyclerItemCallback
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class CardInfoActivity : AppCompatActivity(), TextView.OnEditorActionListener {
+class CardInfoActivity : AppCompatActivity(), TextView.OnEditorActionListener, IRecyclerItemCallback {
 
 	private lateinit var binding: ActivityCardInfoBinding
+	private lateinit var bottomSheetBinding: BottomSheetBinding
+	private lateinit var bottomSheetDialog: BottomSheetDialog
+	private val adapter = RecyclerAdapter(this)
 	private val viewModel by viewModel<CardInfoViewModel>()
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		binding = ActivityCardInfoBinding.inflate(layoutInflater)
+		bottomSheetBinding = BottomSheetBinding.inflate(layoutInflater)
 		setContentView(binding.root)
 		binding.progressBar.hideWithFade()
+		createBottomSheet()
 		setObserves()
 		setListeners()
 	}
@@ -42,16 +50,32 @@ class CardInfoActivity : AppCompatActivity(), TextView.OnEditorActionListener {
 		return false
 	}
 
+	override fun onRecyclerItemClick(request: String) {
+		TODO("Not yet implemented")
+	}
+
+	private fun createBottomSheet() {
+		bottomSheetDialog = BottomSheetDialog(this)
+		bottomSheetDialog.setContentView(bottomSheetBinding.root)
+		bottomSheetBinding.recyclerView.adapter = adapter
+	}
+
 	private fun setListeners() {
 		binding.searchCardInfo.setOnEditorActionListener(this)
 		binding.searchCardInfoLayout.setEndIconOnClickListener { clearEditText() }
+		binding.showHistoryButton.setOnClickListener { showBottomSheet() }
+	}
+
+	private fun showBottomSheet() {
+		bottomSheetDialog.show()
 	}
 
 	private fun setObserves() {
 		viewModel.state.observe(this, ::handleState)
 		viewModel.requests.observe(this) {
-			for (request in it) {
-				Log.e("HISTORY_REQUEST", request.request)
+			adapter.submitList(it.toList())
+			for (item in it.toList()) {
+				Log.e("YYY", item.request)
 			}
 		}
 	}

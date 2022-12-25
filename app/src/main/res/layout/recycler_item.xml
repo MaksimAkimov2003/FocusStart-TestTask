@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:layout_margin="5dp">
+
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:background="@drawable/recycler_item_style"
+		android:orientation="horizontal"
+		android:paddingBottom="12dp"
+		android:paddingEnd="12dp"
+		android:paddingStart="20dp"
+		android:paddingTop="12dp">
+
+		<TextView
+			android:id="@+id/request_text"
+			style="@style/Theme.FocuseStarttestTask.Text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="45717360"
+			android:textColor="@color/white"
+			android:textSize="20sp"></TextView>
+
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/repeat_request_button"
+			android:layout_width="32dp"
+			android:layout_height="32dp"
+			android:layout_marginStart="20dp"
+			android:background="@drawable/ic_baseline_refresh_24"></com.google.android.material.button.MaterialButton>
+
+	</LinearLayout>
+
+</LinearLayout>

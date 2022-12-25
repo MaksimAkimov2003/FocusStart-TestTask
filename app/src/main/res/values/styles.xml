@@ -9,12 +9,8 @@
 		<item name="boxCornerRadiusTopStart">20dp</item>
 	</style>
 
-	<style name="Theme.FocuseStarttestTask.Test" parent="ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox">
-		<item name="boxStrokeColor">@color/green</item>
-		<item name="boxCornerRadiusBottomEnd">20dp</item>
-		<item name="boxCornerRadiusBottomStart">20dp</item>
-		<item name="boxCornerRadiusTopEnd">20dp</item>
-		<item name="boxCornerRadiusTopStart">20dp</item>
+	<style name="Theme.FocuseStarttestTask.Test" parent="TextAppearance.MaterialComponents.Button">
+		<item name="color">@color/green</item>
 	</style>
 
 	<style name="Theme.FocuseStarttestTask.Tittle">

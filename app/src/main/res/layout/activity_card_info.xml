@@ -271,5 +271,18 @@
 			app:layout_constraintTop_toTopOf="parent" />
 	</androidx.constraintlayout.widget.ConstraintLayout>
 
+	<com.google.android.material.button.MaterialButton
+		android:id="@+id/show_history_button"
+		android:layout_width="wrap_content"
+		android:layout_height="70dp"
+		android:layout_gravity="center"
+		android:layout_marginTop="40dp"
+		android:backgroundTint="@color/green"
+		android:text="@string/show_history_button_text"
+		android:textSize="20sp"
+		app:cornerRadius="30dp">
+
+	</com.google.android.material.button.MaterialButton>
+
 
 </LinearLayout>
