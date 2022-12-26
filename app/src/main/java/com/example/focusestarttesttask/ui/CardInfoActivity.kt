@@ -43,7 +43,7 @@ class CardInfoActivity : AppCompatActivity(), TextView.OnEditorActionListener, I
 	override fun onEditorAction(p0: TextView?, actionId: Int, p2: KeyEvent?): Boolean {
 		if (actionId == EditorInfo.IME_ACTION_SEARCH) {
 			hideKeyboard()
-			viewModel.getCardDetails(binding.searchCardInfo.text.toString())
+			checkUserRequestForNull()
 			return true
 		}
 		return false
@@ -53,6 +53,14 @@ class CardInfoActivity : AppCompatActivity(), TextView.OnEditorActionListener, I
 		viewModel.getCardDetails(request)
 		binding.searchCardInfo.setText(request)
 		bottomSheetDialog.dismiss()
+	}
+
+	private fun checkUserRequestForNull() {
+		if (binding.searchCardInfo.text.toString() != "") {
+			viewModel.getCardDetails(binding.searchCardInfo.text.toString())
+			return
+		}
+		showErrors()
 	}
 
 	private fun createBottomSheet() {
