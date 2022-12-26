@@ -10,26 +10,33 @@
 		android:id="@+id/bottom_sheet"
 		android:layout_width="match_parent"
 		android:layout_height="500dp"
-		android:orientation="vertical">
+		android:background="@color/white"
+		android:orientation="vertical"
+		tools:ignore="UselessParent">
 
 		<TextView
+			android:id="@+id/recycler_tittle"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_gravity="center"
 			android:layout_marginTop="12dp"
-			android:text="@string/no_requests_text"
+			android:text="@string/requests_tittle_text"
 			android:textColor="@color/black"
 			android:textSize="24sp"
-			android:textStyle="bold"></TextView>
+			android:textStyle="bold" />
 
 		<androidx.recyclerview.widget.RecyclerView
 			android:id="@+id/recycler_view"
-			android:layout_width="300dp"
-			android:layout_height="300dp"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
 			android:layout_gravity="center"
 			android:layout_marginTop="20dp"
-			android:background="@color/red"
-			android:orientation="vertical"
+			android:background="@drawable/recycler_stroke"
+			android:orientation="horizontal"
+			android:paddingBottom="8dp"
+			android:paddingEnd="8dp"
+			android:paddingStart="8dp"
+			android:paddingTop="8dp"
 			app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
 			tools:listitem="@layout/recycler_item">
 

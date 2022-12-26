@@ -5,7 +5,6 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.telephony.PhoneNumberUtils
-import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
@@ -19,21 +18,21 @@ import com.example.focusestarttesttask.databinding.BottomSheetBinding
 import com.example.focusestarttesttask.presentation.CardInfoState
 import com.example.focusestarttesttask.presentation.CardInfoViewModel
 import com.example.focusestarttesttask.ui.recycler.IRecyclerItemCallback
+import com.example.focusestarttesttask.ui.recycler.RecyclerAdapter
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CardInfoActivity : AppCompatActivity(), TextView.OnEditorActionListener, IRecyclerItemCallback {
 
-	private lateinit var binding: ActivityCardInfoBinding
-	private lateinit var bottomSheetBinding: BottomSheetBinding
-	private lateinit var bottomSheetDialog: BottomSheetDialog
+	private val binding by lazy { ActivityCardInfoBinding.inflate(layoutInflater) }
+	private val bottomSheetBinding by lazy { BottomSheetBinding.inflate(layoutInflater) }
 	private val adapter = RecyclerAdapter(this)
 	private val viewModel by viewModel<CardInfoViewModel>()
 
+	private lateinit var bottomSheetDialog: BottomSheetDialog
+
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
-		binding = ActivityCardInfoBinding.inflate(layoutInflater)
-		bottomSheetBinding = BottomSheetBinding.inflate(layoutInflater)
 		setContentView(binding.root)
 		binding.progressBar.hideWithFade()
 		createBottomSheet()
@@ -51,7 +50,9 @@ class CardInfoActivity : AppCompatActivity(), TextView.OnEditorActionListener, I
 	}
 
 	override fun onRecyclerItemClick(request: String) {
-		TODO("Not yet implemented")
+		viewModel.getCardDetails(request)
+		binding.searchCardInfo.setText(request)
+		bottomSheetDialog.dismiss()
 	}
 
 	private fun createBottomSheet() {
@@ -74,9 +75,6 @@ class CardInfoActivity : AppCompatActivity(), TextView.OnEditorActionListener, I
 		viewModel.state.observe(this, ::handleState)
 		viewModel.requests.observe(this) {
 			adapter.submitList(it.toList())
-			for (item in it.toList()) {
-				Log.e("YYY", item.request)
-			}
 		}
 	}
 
@@ -93,7 +91,6 @@ class CardInfoActivity : AppCompatActivity(), TextView.OnEditorActionListener, I
 	}
 
 	private fun renderLoadingState() {
-		Log.e("AAAAA", "renderLoadingState")
 		binding.progressBar.showWithFade()
 	}
 

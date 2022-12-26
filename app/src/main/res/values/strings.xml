@@ -16,5 +16,5 @@
 	<string name="SHARED_PREFS_REQUESTS">SHARED_PREFS_REQUESTS</string>
 	<string name="REQUESTS_SET_NAME">REQUESTS_SET</string>
 	<string name="show_history_button_text">История запросов</string>
-	<string name="no_requests_text">Запросов, пока нет...</string>
+	<string name="requests_tittle_text">Список запросов:</string>
 </resources>
